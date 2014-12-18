@@ -1,37 +1,39 @@
 package com.example.sungjin.onething_experience.adapter;
 
 
-import android.database.DataSetObserver;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SpinnerAdapter;
+import android.widget.BaseAdapter;
 
-public class PeriodListAdapter implements SpinnerAdapter{
+import java.util.ArrayList;
+import java.util.HashMap;
 
+public class PeriodListAdapter extends BaseAdapter {
+    private LayoutInflater inflater;
+    private Context ctx;
+    private String[] categoryArray;
+    private int listLayout;
+    private int listCount;
 
-    @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return null;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
+    public PeriodListAdapter(Context ctx, int listLayout, String[] tmpArray) {
+        this.ctx = ctx;
+        this.listLayout = listLayout;
+        inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (categoryArray != null) {
+            this.listCount = categoryArray.length;
+        }
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return this.listCount;
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return categoryArray[position];
     }
 
     @Override
@@ -40,27 +42,7 @@ public class PeriodListAdapter implements SpinnerAdapter{
     }
 
     @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         return null;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return 0;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
     }
 }
